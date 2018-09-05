@@ -42,7 +42,7 @@ public abstract class AbstractResource {
 
     private <T> Result<T> sendRequest(String url,String successMessage){
         WellRestedResponse wellRestedResponse = WellRestedRequest.builder().url(url).build().get().submit();
-        if(wellRestedResponse.isValid()){
+        if(!wellRestedResponse.isValid()){
             return ResultBuilder.failed(wellRestedResponse.getServerResponse());
         }
         return convertToResult(wellRestedResponse,successMessage);
