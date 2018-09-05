@@ -13,7 +13,7 @@ public class WebPurifyResponse {
     @SerializedName(value = "rsp")
     private Response response;
 
-    public boolean isSucess(){
+    public boolean isSuccess(){
         return response != null && (response.getSuccess() == 1 || ListsAcolyte.isNotEmpty(response.getWords()));
     }
 
@@ -25,7 +25,7 @@ public class WebPurifyResponse {
     }
 
     @Data
-    public class Response{
+    private class Response{
 
         private int success;
 
