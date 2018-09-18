@@ -16,6 +16,9 @@ public interface Messages {
         String WORD_ADDED    = "Word added";
         String WORD_REMOVED  = "Word removed";
         String WORDS_FETCHED = "Words fetched";
+        String TEXT_CHECKED = "Text checked";
+        String TEXT_REPLACED = "Text replaced";
+        String TEXT_COUNTED = "Text counted";
     }
 
 }
