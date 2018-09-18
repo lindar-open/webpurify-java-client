@@ -1,4 +1,4 @@
-package com.lindar.webpurify.util;
+package com.lindar.webpurify.util.configs;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

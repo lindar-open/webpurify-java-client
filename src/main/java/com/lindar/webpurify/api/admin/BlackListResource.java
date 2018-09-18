@@ -1,7 +1,8 @@
-package com.lindar.purify.api.admin;
+package com.lindar.webpurify.api.admin;
 
-import com.lindar.purify.util.Methods;
-import com.lindar.purify.util.WebPurifyConfigs;
+
+import com.lindar.webpurify.util.Methods;
+import com.lindar.webpurify.util.configs.WebPurifyConfigs;
 import com.lindar.wellrested.vo.Result;
 
 import java.util.List;

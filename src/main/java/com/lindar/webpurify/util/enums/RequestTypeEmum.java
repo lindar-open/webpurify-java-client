@@ -5,7 +5,7 @@ import lombok.Getter;
 import java.util.Arrays;
 import java.util.List;
 
-public enum RequestType {
+public enum RequestTypeEmum {
 
     CHECK("Check"),
     COUNT("Count"),
@@ -15,11 +15,11 @@ public enum RequestType {
     @Getter
     private final String label;
 
-    RequestType(String label){
+    RequestTypeEmum(String label){
         this.label = label;
     }
 
-    public static List<RequestType> listAll(){
+    public static List<RequestTypeEmum> listAll(){
         return Arrays.asList(values());
     }
 
