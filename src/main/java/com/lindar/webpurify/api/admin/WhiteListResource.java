@@ -13,15 +13,15 @@ public class WhiteListResource extends AbstractAdminResource {
         super(webPurifyConfigs);
     }
 
-    public Result<Void> addWord(String word){
-        return this.addWord(Methods.WHITELIST.ADD , word);
+    public Result<Void> addWord(String word) {
+        return this.addWord(Methods.WHITELIST.ADD, word);
     }
 
-    public Result<Void> removeWord(String word){
-        return this.removeWord(Methods.WHITELIST.REMOVE , word);
+    public Result<Void> removeWord(String word) {
+        return this.removeWord(Methods.WHITELIST.REMOVE, word);
     }
 
-    public Result<List<String>> listWords(){
+    public Result<List<String>> listWords() {
         return this.listWords(Methods.WHITELIST.GET);
     }
 

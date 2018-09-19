@@ -13,10 +13,10 @@ public class WebPurify {
     private BlackListResource blackListResource;
     private WhiteListResource whiteListResource;
 
-    private CheckResource checkResource;
-    private CountResource countResource;
+    private CheckResource   checkResource;
+    private CountResource   countResource;
     private ReplaceResource replaceResource;
-    private ReturnResource returnResource;
+    private ReturnResource  returnResource;
 
     public WebPurify(WebPurifyConfigs webPurifyConfigs) {
         this.blackListResource = new BlackListResource(webPurifyConfigs);
@@ -36,19 +36,19 @@ public class WebPurify {
         return this.whiteListResource;
     }
 
-    public CheckResource check(){
+    public CheckResource check() {
         return this.checkResource;
     }
 
-    public CountResource count(){
+    public CountResource count() {
         return this.countResource;
     }
 
-    public ReplaceResource replace(){
+    public ReplaceResource replace() {
         return this.replaceResource;
     }
 
-    public ReturnResource returns(){
+    public ReturnResource returns() {
         return this.returnResource;
     }
 

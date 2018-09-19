@@ -13,15 +13,15 @@ public class BlackListResource extends AbstractAdminResource {
         super(webPurifyConfigs);
     }
 
-    public Result<Void> addWord(String word){
-        return this.addWord(Methods.BLACKLIST.ADD , word);
+    public Result<Void> addWord(String word) {
+        return this.addWord(Methods.BLACKLIST.ADD, word);
     }
 
-    public Result<Void> removeWord(String word){
-        return this.removeWord(Methods.BLACKLIST.REMOVE , word);
+    public Result<Void> removeWord(String word) {
+        return this.removeWord(Methods.BLACKLIST.REMOVE, word);
     }
 
-    public Result<List<String>> listWords(){
+    public Result<List<String>> listWords() {
         return this.listWords(Methods.BLACKLIST.GET);
     }
 

@@ -15,11 +15,11 @@ public enum RequestTypeEmum {
     @Getter
     private final String label;
 
-    RequestTypeEmum(String label){
+    RequestTypeEmum(String label) {
         this.label = label;
     }
 
-    public static List<RequestTypeEmum> listAll(){
+    public static List<RequestTypeEmum> listAll() {
         return Arrays.asList(values());
     }
 

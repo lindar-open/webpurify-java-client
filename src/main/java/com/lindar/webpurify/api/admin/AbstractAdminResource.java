@@ -12,16 +12,16 @@ abstract class AbstractAdminResource extends AbstractResource {
         super(webPurifyConfigs);
     }
 
-    <T> Result<T> addWord(String method, String word){
-        return sendRequest(buildFormParamsMap(method, word) , Messages.SUCCESS.WORD_ADDED);
+    <T> Result<T> addWord(String method, String word) {
+        return sendRequest(buildFormParamsMap(method, word), Messages.SUCCESS.WORD_ADDED);
     }
 
-    <T> Result<T> removeWord(String method,String word){
-        return sendRequest(buildFormParamsMap(method, word) , Messages.SUCCESS.WORD_REMOVED);
+    <T> Result<T> removeWord(String method, String word) {
+        return sendRequest(buildFormParamsMap(method, word), Messages.SUCCESS.WORD_REMOVED);
     }
 
-    <T> Result<T> listWords(String method){
-        return sendRequest(buildFormParamsMap(method) , Messages.SUCCESS.WORDS_FETCHED);
+    <T> Result<T> listWords(String method) {
+        return sendRequest(buildFormParamsMap(method), Messages.SUCCESS.WORDS_FETCHED);
     }
 
 }

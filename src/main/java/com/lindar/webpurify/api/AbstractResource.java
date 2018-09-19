@@ -3,6 +3,7 @@ package com.lindar.webpurify.api;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.lindar.webpurify.util.Messages;
+import com.lindar.webpurify.util.Params;
 import com.lindar.webpurify.util.configs.WebPurifyConfigs;
 import com.lindar.webpurify.util.enums.RequestTypeEmum;
 import com.lindar.webpurify.util.response.WebPurifyInnerResponse;
@@ -18,13 +19,26 @@ import java.util.HashMap;
 import java.util.Map;
 
 public abstract class AbstractResource {
-
     protected static final String FORMAT = "json";
-
     protected WebPurifyConfigs webPurifyConfigs;
 
     protected AbstractResource(WebPurifyConfigs webPurifyConfigs) {
         this.webPurifyConfigs = webPurifyConfigs;
+    }
+
+    protected Map<String, String> buildFormParams(String method, String text) {
+        Map<String, String> formParams = new HashMap<>();
+        formParams.put(Params.API_KEY, webPurifyConfigs.getApiKey());
+        formParams.put(Params.METHOD, method);
+        formParams.put(Params.FORMAT, FORMAT);
+        formParams.put(Params.TEXT, text);
+        return formParams;
+    }
+
+    protected Map<String, String> buildFormParams(String method, String text, String replacement) {
+        Map<String, String> formParams = buildFormParams(method, text);
+        formParams.put(Params.REPLACE_SYMBOL, replacement);
+        return formParams;
     }
 
     protected <T> Result<T> sendRequest(Map<String, String> formParams, String successMessage) {
@@ -120,7 +134,7 @@ public abstract class AbstractResource {
         return ResultBuilder.failed(message);
     }
 
-    private WebPurifyResponse castToWebPurifyResponse(WellRestedResponse wellRestedResponse){
+    private WebPurifyResponse castToWebPurifyResponse(WellRestedResponse wellRestedResponse) {
         Gson gson = new GsonBuilder()
                 .registerTypeAdapter(WebPurifyInnerResponse.class, new WebPurifyResponseDeserializer())
                 .create();

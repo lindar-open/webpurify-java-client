@@ -7,7 +7,7 @@ import java.util.List;
 
 public enum LanguageEnum {
 
-    EN("English","en");
+    EN("English", "en");
 
     @Getter
     private final String label;
@@ -16,7 +16,7 @@ public enum LanguageEnum {
     @Getter
     private final String code;
 
-    LanguageEnum(String label,String code){
+    LanguageEnum(String label, String code) {
         this.label = label;
         this.code = code;
     }
