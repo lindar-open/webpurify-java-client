@@ -7,6 +7,7 @@ import com.lindar.webpurify.util.configs.WebPurifyConfigs;
 import com.lindar.webpurify.util.enums.LanguageEnum;
 import com.lindar.webpurify.util.enums.RequestTypeEmum;
 import com.lindar.wellrested.vo.Result;
+import com.lindar.wellrested.vo.ResultBuilder;
 
 import java.util.Map;
 
@@ -49,6 +50,9 @@ public class CheckResource extends AbstractResource {
         }
 
         public Result<Boolean> submit() {
+            if (!isEnabled()) {
+                return ResultBuilder.failed(Messages.ERROR.DISABLED);
+            }
             return sendRequest(RequestTypeEmum.CHECK, formParams, Messages.SUCCESS.TEXT_CHECKED);
         }
 

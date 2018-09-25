@@ -13,14 +13,15 @@ import com.lindar.wellrested.WellRestedRequest;
 import com.lindar.wellrested.vo.Result;
 import com.lindar.wellrested.vo.ResultBuilder;
 import com.lindar.wellrested.vo.WellRestedResponse;
+import org.apache.commons.lang3.BooleanUtils;
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.HashMap;
 import java.util.Map;
 
 public abstract class AbstractResource {
-    protected static final String FORMAT = "json";
-    protected WebPurifyConfigs webPurifyConfigs;
+    protected static final String           FORMAT = "json";
+    protected              WebPurifyConfigs webPurifyConfigs;
 
     protected AbstractResource(WebPurifyConfigs webPurifyConfigs) {
         this.webPurifyConfigs = webPurifyConfigs;
@@ -70,6 +71,10 @@ public abstract class AbstractResource {
             paramMap.put("word", word);
         }
         return paramMap;
+    }
+
+    protected boolean isEnabled() {
+        return BooleanUtils.isTrue(webPurifyConfigs.isEnabled());
     }
 
     private <T> Result<T> convertToResult(RequestTypeEmum requestTypeEmum, WellRestedResponse wellRestedResponse, String successMessage) {

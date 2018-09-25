@@ -8,6 +8,7 @@ import com.lindar.webpurify.util.configs.WebPurifyConfigs;
 import com.lindar.webpurify.util.enums.LanguageEnum;
 import com.lindar.webpurify.util.enums.RequestTypeEmum;
 import com.lindar.wellrested.vo.Result;
+import com.lindar.wellrested.vo.ResultBuilder;
 
 import java.util.List;
 import java.util.Map;
@@ -51,6 +52,9 @@ public class ReturnResource extends AbstractResource {
         }
 
         public <T> Result<List<String>> submit() {
+            if (!isEnabled()) {
+                return ResultBuilder.failed(Messages.ERROR.DISABLED);
+            }
             return sendRequest(RequestTypeEmum.RETURN, formParams, Messages.SUCCESS.WORDS_FETCHED);
         }
 

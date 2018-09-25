@@ -8,6 +8,7 @@ import com.lindar.webpurify.util.configs.WebPurifyConfigs;
 import com.lindar.webpurify.util.enums.LanguageEnum;
 import com.lindar.webpurify.util.enums.RequestTypeEmum;
 import com.lindar.wellrested.vo.Result;
+import com.lindar.wellrested.vo.ResultBuilder;
 
 import java.util.Map;
 
@@ -50,6 +51,9 @@ public class CountResource extends AbstractResource {
         }
 
         public Result<Integer> submit() {
+            if (!isEnabled()) {
+                return ResultBuilder.failed(Messages.ERROR.DISABLED);
+            }
             return sendRequest(RequestTypeEmum.COUNT, formParams, Messages.SUCCESS.TEXT_COUNTED);
         }
 
