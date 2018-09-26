@@ -23,9 +23,12 @@ public class ReplaceResource extends AbstractResource {
 
     public class ReplaceRequest {
 
+        private String text;
+
         private Map<String, String> formParams;
 
         ReplaceRequest(String text, String replacement) {
+            this.text = text;
             formParams = buildFormParams(Methods.REPLACE, text, replacement);
         }
 
@@ -49,8 +52,15 @@ public class ReplaceResource extends AbstractResource {
             return this;
         }
 
-        public Result<String> submit() {
-            return sendRequest(RequestTypeEmum.REPLACE, formParams, Messages.SUCCESS.TEXT_REPLACED);
+        public String submit() {
+            if (!isEnabled()) {
+                return text;
+            }
+            Result<String> replaceText = sendRequest(RequestTypeEmum.REPLACE, formParams, Messages.SUCCESS.TEXT_REPLACED);
+            if (replaceText.isSuccessAndNotNull()) {
+                return replaceText.getData();
+            }
+            return text;
         }
 
     }

@@ -10,6 +10,7 @@ public interface Messages {
         String EXCEEDED_CALL_LIMIT = "You have exceeded the number of simultaneous requests for your license";
         String WORD_EMPTY          = "Word parameter is blank";
         String UNKNOWN             = "Unknown error";
+        String DISABLED            = "WebPurify client is disabled. Please enable in configs";
     }
 
     interface SUCCESS {
